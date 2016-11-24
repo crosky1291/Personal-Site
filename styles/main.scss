@@ -1,16 +1,6 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
 
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-  background-color: blue;
-}
+//reset for browser compatability
+@import "./reset";
 
-nav {
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-}
+//home page styles
+@import "./home";

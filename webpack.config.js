@@ -8,7 +8,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var config = {
   entry: {
     app: mainPath,
-    libraries: ['angular', "angular-route", "angular-ui-bootstrap"]
+    libraries: ['angular', "angular-route"]
   },
 
   //makes everything go to the build folder

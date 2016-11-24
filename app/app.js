@@ -1,7 +1,7 @@
 'use strict'
 
 var angular = require('angular')
-var app = angular.module('yandriSanchez', [require('angular-route'), require('angular-ui-bootstrap')]);
+var app = angular.module('yandriSanchez', [require('angular-route')]);
 app.config(configFunction);
 
 //configuration of routes.
