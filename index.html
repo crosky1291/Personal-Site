@@ -9,10 +9,59 @@
   <link rel="stylesheet" href="build/bundle.css">
 </head>
 <body >
+<div id="preloader">
+  <div class="loader">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
 <div class="page {{testclass}}" ng-class="{gomid: gomid}" ng-view></div>
 
-
+  <!-- LIBRARIES BEING USED SUCH AS ANGULAR -->
   <script type="text/javascript" src="build/libraries.bundle.js"></script>
+ <!--  ALL OF THE APP'S BUNDLE -->
   <script type="text/javascript" src="build/app.bundle.js"></script>
+  <!-- THIS SCRIPT IS JUST A FADE FUNCTION DIDNT WANTED TO ADD JQUERY JUST FOR THIS -->
+  <script>
+
+    //make the element prototype of '_' just like jquery is of '$'
+    function _(el) {
+      if (!(this instanceof _)) {
+        return new _(el);
+      }
+      this.el = document.getElementById(el);
+    }
+
+    //function can be used to fade in or out as needed just pass ('in' or 'out') as the type
+    _.prototype.fade = function fade(type, ms) {
+      var isIn = type === 'in',
+        opacity = isIn ? 0 : 1,
+        interval = 50,
+        duration = ms,
+        gap = interval / duration,
+        self = this;
+
+
+      function func() {
+        opacity = isIn ? opacity + gap : opacity - gap;
+        self.el.style.opacity = opacity;
+
+        //in my case I want to remove the element from DOM after it reaches 0
+        if(opacity <= 0) self.el.parentNode.removeChild(self.el);
+
+        //clear the Interval or will get lots of DOM errors ounce it reaches the higher/lower peak.
+        if(opacity <= 0 || opacity >= 1) window.clearInterval(fading);
+      }
+
+      var fading = window.setInterval(func, interval);
+    }
+
+    setTimeout(function() {
+      _('preloader').fade('out', 1000);
+    }, 1000);
+
+  </script>
 </body>
 </html>
