@@ -1,28 +1,34 @@
-<div class="home-page">
-  <header class="">
-    <img ng-src="http://demos.seekerinfinity.com/demo/insta/preview/images/home_dp.jpg" alt="image of me" class="">
-    <div class="mask"></div>
-    <div class="intro-content">
-      <h1>Hello.</h1>
-      <h1>I'm <span class="red">Yandri</span></h1>
-      <h2>Software Engineer</h2>
-    </div>
-  </header>
-  <nav class="">
-    <ul id="nav-items">
-      <li id="{{item.id}}" ng-repeat="item in nav" class="">
-        <img ng-src="{{item.img}}" alt="{{item.alt}}" class="">
-        <div class="mask"></div>
-        <div class="content">
-          <div class="circle">
-            <div class="icon"></div>
-          </div>
-          <div class="">
-            <h2>{{item.name[0]}}<span class="red">{{item.name[1]}}</span>{{item.name[2]}}</h2>
-            <h3>{{item.info}}</h3>
-          </div> 
-        </div> <!-- content -->
-      </li> 
-    </ul>
-  </nav>
+<div class="home-page container">
+  <div class="main-content row row-no-padding">
+    <header class="col-md-6 {{class2}}">
+      <img ng-src="http://demos.seekerinfinity.com/demo/insta/preview/images/home_dp.jpg" alt="image of me" class="" ng-style="style()" resize>
+      <div class="mask"></div>
+      <div class="intro-content">
+        <h1>HELLO. <br> I'M <span class="red">YANDRI</span></h1>
+        <h2>SOFTWARE ENGINEER</h2>
+        <div class="social-media">
+          <a href="{{i.url}}" class="{{i.iconClass}}" ng-repeat="i in socialMedia">
+            <span>{{i.name}}</span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <nav class="col-md-6 {{class3}}">
+      <ul id="nav-items">
+        <li id="{{item.id}}" ng-repeat="item in nav" class="" ng-click="changePage(item.id)">
+          <img ng-src="{{item.img}}" alt="{{item.alt}}" >
+          <div class="mask"></div>
+          <div class="content">
+            <div class="circle col-xs-2">
+              <img ng-src="{{item.icon}}" class="">
+            </div>
+            <div class="col-xs-10">
+              <h2>{{item.name[0]}}<span class="red">{{item.name[1]}}</span>{{item.name[2]}}</h2>
+              <h3>{{item.info}}</h3>
+            </div> 
+          </div> <!-- content -->
+        </li> 
+      </ul>
+    </nav>
+  </div>
 </div> <!-- main-container -->
