@@ -1,1 +1,67 @@
-<closebutton changepage="changePage('home')"></closebutton>
+
+<div class="contact-page container">
+  <closebutton changepage="changePage('home')"></closebutton>
+  <div class="main-content row row-no-padding">
+    <header class="col-md-5 left-sections">
+      <img ng-src="https://cdn.pixabay.com/photo/2015/01/25/21/02/phone-612061_960_720.jpg" alt="backdrop image of the portfolio page">
+      <div class="mask"></div>
+      <div class="headings">
+        <h1>CON<span class="red">T</span>ACT</h1>
+        <div class="red-line"></div>
+      </div>
+    </header>
+    <section class="col-md-7 right-sections">
+      <div class="main-info">
+        <h1>SAY HELLO!</h1>
+        <form id="contact-form" action="contact.php" method="post" class="row row-no-padding">
+          <section id="contact-left" class="col-md-6">
+            <label for="name" class="col-xs-12">
+              <span class="col-xs-3">Name</span>
+              <input type="text" id="name" required class="col-xs-9"/>
+            </label>
+            <label for="email" class="col-xs-12">
+                <span class="col-xs-3">Email</span>
+                <input type="text" id="email" required class="col-xs-9" />
+            </label>
+            <label for="phone" class="col-xs-12">
+                <span class="col-xs-3">Phone</span>
+                <input type="text" id="phone" class="col-xs-9" />
+            </label>
+            <label for="budget" class="col-xs-12">              
+              <span class="col-xs-3">Budget</span>
+              <input type="text" id="budget" placeholder="$" class="col-xs-9" />
+            </label>
+            <button type="submit">Send
+            <i class="fa fa-paper-plane-o"></i>
+            </button>
+          </section>
+          <section id="contact-right" class="col-md-6">
+            <textarea id="text-area" placeholder="Leave me a little message..." class="col-xs-11"></textarea>
+          </section>
+        </form>
+      </div>
+      <div id="location-img">
+        <img src="../images/location.jpg" >
+      </div>
+      
+      <div class="main-info contact-details">
+        <h2>Contact Details</h2>
+        <div class="row row-no-padding">
+          <div class="col-md-4 items">
+            <i class="fa fa-map-marker"></i>
+            <p>Culver City, CA</p>
+          </div>
+          <div class="col-md-4 items">
+            <i class="fa fa-phone"></i>
+            <p>321-245-1309</p>
+          </div>
+          <div class="col-md-4 items">
+            <i class="fa fa-envelope"></i>
+            <p>Ysanchez3d@gmail.com</p>
+          </div>
+        </div>
+      </div>
+      <footerinfo year="currentYear" />
+    </section>
+  </div>
+</div>

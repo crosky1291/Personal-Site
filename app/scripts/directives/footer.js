@@ -4,8 +4,9 @@ function FooterDirective() {
   return {
     restrict: "EA",
     template: require('../../../templates/footer.html'),
-    scope: {
-      year: '=year'
+    scope: {},
+    link: function(scope, element, attributes) {
+      scope.year = new Date().getFullYear();
     }
   }
 }

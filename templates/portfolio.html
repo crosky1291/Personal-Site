@@ -1,66 +1,67 @@
 <div class="portfolio-page container">
   <closebutton changepage="changePage('home')"></closebutton>
   <div class="main-content row row-no-padding">
-    <header class="col-md-5">
-      <img ng-src="http://demos.seekerinfinity.com/demo/insta/preview/images/background/portfolio_image.jpg" alt="backdrop image of the portfolio page">
+    <header class="col-md-5 left-sections">
+      <img ng-src="https://cdn.pixabay.com/photo/2014/12/27/15/31/camera-581126_960_720.jpg" alt="backdrop image of the portfolio page">
+      
       <div class="mask"></div>
       <div class="headings">
         <h1>POR<span class="red">T</span>FOLIO</h1>
         <div class="red-line"></div>
       </div>
     </header>
-    <section class="col-md-7">
+    <section class="col-md-7 right-sections">
       <div class="main-info">
         <h1> < PORTFOLIO /></h1>
         <div class="buttons">
           <button id="all">All</button>
           <button id="web-dev">Web Development</button>
-          <button id="3d">Vfx &  3D Animation</button>
+          <button id="3d">Vfx & 3D Animation</button>
         </div>
         <div id="projects-container" class="row">
           <div class="projects web-dev col-xs-6">
             <div class="project">
-              <img src="../images/copernicus.png">
+              <img src="../images/projects/copernicus.png">
               <div class="project-mask"></div>
               <div class="project-buttons">
                 <a class="fa fa-info-circle"></a>
-                <a class="fa fa-github"></a>
+                <a class="fa fa-github" href="https://github.com/crosky1291/Main"></a>
               </div>
             </div>
           </div>
           <div class="projects web-dev col-xs-6">
             <div class="project">
-              <img src="../images/easyraidfinder.png">
+              <img src="../images/projects/easyraidfinder.png">
               <div class="project-mask"></div>
               <div class="project-buttons">
                 <a class="fa fa-info-circle"></a>
-                <a class="fa fa-github"></a>
+                <a class="fa fa-github" href="https://github.com/crosky1291/Easy-RaidFinder"></a>
               </div>
             </div>
           </div>
           <div class="projects vfx col-xs-6">
             <div class="project">
-              <img src="../images/animation.png">
+              <img src="../images/projects/animation.png">
               <div class="project-mask"></div>
               <div class="project-buttons">
                 <a class="fa fa-info-circle"></a>
-                <a class="fa fa-github"></a>
+                <a class="fa fa-youtube-play" href="https://www.youtube.com/watch?v=SfnJ13Qh7BE"></a>
               </div>
             </div>
           </div>
           <div class="projects vfx col-xs-6">
             <div class="project">
-              <img src="../images/vfx.png">
+              <img src="../images/projects/vfx.png">
               <div class="project-mask"></div>
               <div class="project-buttons">
                 <a class="fa fa-info-circle"></a>
-                <a class="fa fa-github"></a>
+                <a class="fa fa-youtube-play" href="https://www.youtube.com/watch?v=Mru23onz-Ms"></a>
               </div>
             </div>
           </div>
         </div> <!-- project container -->
       </div>
-      <button id="resume">Download Resume</button>
+      <a id="resume" href="../images/YandriSanchez_Resume.pdf" download="../images/YandriSanchez_Resume.pdf">Download Resume</a>
       <techicons></techicons>
       <footerinfo year="currentYear" />
     </section>

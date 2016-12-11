@@ -1,7 +1,7 @@
 'use strict'
 
-function iconsInfo() {
-  return [
+function linkFunc(scope, element, attributes) {
+  scope.iconsInfo = [
   {
     icon: "html.png",
     text: 'HTML'
@@ -76,12 +76,13 @@ function iconsInfo() {
   }];
 }
 
+
 function TechIconsDirective() {
   return {
-    scope: true,
-    link: iconsInfo,
     restrict: "EA",
-    template: require('../../../templates/techIcons.html'),  
+    template: require('../../../templates/techIcons.html'),
+    scope: {},
+    link: linkFunc
   }
 }
 
