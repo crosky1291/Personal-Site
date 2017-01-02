@@ -16,7 +16,6 @@ body {
   font-family: $font-stack;
   color: $color-white;
   background: #FFF;
-  width: 100vw;
   height: 100vh;
 }
 
@@ -62,7 +61,7 @@ h2 {
 
 
 .home-page {
-
+  position: fixed;
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -160,7 +159,7 @@ h2 {
 
     .content {
       width: 100%;
-      height: 50%;
+      height: 60px;
       margin: auto;
       position: absolute;
       top: 0; left: 0; bottom: 0; right: 0;
@@ -174,7 +173,7 @@ h2 {
         box-shadow: 0 0 0 0 rgba(256, 256, 256, 0.2);
         @include crossBrowser(transition, all 0.3s)
         margin-right: 10px;
-
+        
         img {
           margin: auto;
           position: absolute;
@@ -183,6 +182,10 @@ h2 {
           width: auto;
         }
       } //.circle END
+
+      .text {
+        margin-top: 8px;
+      }
     } //.content END
   } //nav END
 } //.home-page END
@@ -192,14 +195,13 @@ h2 {
 .profile-page,
 .portfolio-page,
 .contact-page {
-  height: 100%;
   width: 100%;
   overflow: hidden;
   .main-content {
 
-    section {
+    >section {
       height: 100%;
-      overflow: scroll;
+      overflow-x: hidden;
     }
 
   }
@@ -230,7 +232,7 @@ h2 {
     .red-line {
       height: 7px;
       background-color: $color-red;
-      width: 70%;
+      width: 85%;
     }
   }
 }
@@ -245,8 +247,8 @@ h2 {
   min-height: 100vh;
 
   .contents {
-    padding: 0 2% 30px 5%;
-
+    padding: 0 8% 30px;
+    text-align: center;
     h1 {
       margin: 60px 0 40px;
       font-size: 36px;
@@ -265,8 +267,9 @@ h2 {
     }
 
     img {
+      float: none;
       border: 1px solid $color-red;
-      margin-right: 20px;
+      margin: 0 auto 50px;
     }
 
     p {
@@ -300,14 +303,22 @@ footer {
     padding: 10px 25px;
   }
 
+  button:nth-child(3) {
+    margin-top: 7px;
+  }
+
   button:hover {
+    color: #f5f5f5;
+    background-color: $color-red;
+  }
+
+  .selected-category {
     color: #f5f5f5;
     background-color: $color-red;
   }
 }
 
 .main-info {
-  margin: 0 5% ;
   text-align: center;
 
   h1 {
@@ -318,6 +329,7 @@ footer {
 }
 
 .projects {
+
   img {
     position: relative;
     display: block;
@@ -325,6 +337,17 @@ footer {
     width: 100%;
   }
 }
+
+#projects-container {
+  margin-left: 15px;
+  margin-right: 15px;
+  perspective: 100px;
+}
+
+.projects.ng-enter {
+  animation: fadein 0.5s ease-in;
+}
+
 
 .project {
   position: relative;
@@ -375,6 +398,11 @@ footer {
   }
 }
 
+.all.ng-enter {
+  color: #f5f5f5;
+  background-color: $color-red;
+}
+
 
 .project-mask {
   width: 100%;
@@ -406,7 +434,7 @@ footer {
   background-color: $color-red;
   margin: 40px auto;
   text-align: center;
-  font-size: 14px;
+  font-size: 11px;
   padding: 20px 2%;
   img {
     width: 100%;
@@ -436,12 +464,10 @@ footer {
 
 
 .page {
-  width: 100vw;
+  width: 100%;
   height: inherit;
   position:absolute;
 }
-
-
 .page.ng-enter { z-index: 8888;}
 .home.ng-enter { z-index:9999; }
 .home.ng-leave { z-index: 9999;}
@@ -449,6 +475,7 @@ footer {
 .profile.ng-leave,
 .portfolio.ng-leave,
 .contact.ng-leave {
+
   animation: fadeout 0.8s ease-in;  
 }
 
@@ -527,7 +554,8 @@ footer {
   color: $color-red;
 
   section {
-    height: 260px;
+    margin-left: 0;
+    margin-right: 0;
     label {
       height: 34px;
       margin-top: 10px;
@@ -549,28 +577,61 @@ footer {
     }
 
     textarea {
+      float: none;
       height: 260px;
       padding: 10px 8px;
       color: #333;
       border: 1px solid $color-red;
     }
 
-    button {
-      position: absolute;
-      bottom: 0;
-      right: 15px;
-      padding: 10px 10px;
-      border: 1px solid $color-red;
-      background-color: transparent;
-      @include crossBrowser(transition, all 0.3s);
-      font-size: 18px;
-      font-weight: bold;
-    }
+    margin-bottom: 30px;
+  }
 
-    button:hover {
-      color: #fff;
-      background-color: $color-red;
-    }
+  section:nth-child(2) {
+    //margin-top: 30px;
+  }
+
+  button {
+    position: relative;
+    padding: 10px 10px;
+    border: 1px solid $color-red;
+    background-color: transparent;
+    @include crossBrowser(transition, all 0.3s);
+    font-size: 18px;
+    font-weight: bold;
+    float: right;
+    margin-right: 30px;
+  }
+
+  button:hover {
+    color: #fff;
+    background-color: $color-red;
+  }
+
+  >p {
+    font-size: 20px;
+  }
+
+  .form-error:after {
+    content: "Sorry form didn't went through :(";
+    color: red;
+    animation: fadeout 3s ease-in-out;
+  }
+
+  .invalid-name:after {
+    content: "Invalid Name.";
+    color: red;
+  }
+
+  .invalid-email:after {
+    content: "Email is not valid.";
+    color: red;
+  }
+
+  .form-success:after {
+    content: "Thank you! I will get back to you shortly.";
+    color: limegreen;
+    animation: fadeout 3s ease-in-out;
   }
 }
 
@@ -619,13 +680,18 @@ footer {
 
   .row {
     .items {
+      margin-top: 25px;
+      text-align: left;
+      margin-left: 15%;
       i {
         color: $color-red;
         font-size: 60px;
         height: 60px;
+        margin-right: 10px;
       }
 
       p {
+        display: inline-block;
         color: #1a1b23;
         font-size: 18px;
         font-weight: 800;
@@ -664,19 +730,103 @@ footer {
 //media queries
 
 
+@media screen and (min-width: $break-medium) {
+  .profile-page,
+  .portfolio-page,
+  .contact-page {
+    height: 100%;
+  }
 
 
-
-
-
-  @media screen and (min-width: $break-small) {
-    .home-page {
-      header {
-        height: 100%;
+  #contact-form {
+    section {
+      button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
       }
+    }
 
-      nav {
-        height: 100%;
+    section:first-child {
+      height: 260px;
+    }
+
+    section:nth-child(2) {
+      margin-top: 0;
+      padding-left: 0;
+      padding-right: 30px;
+    }
+  }
+
+  .buttons {
+    button:nth-child(2) {
+      margin-top: 0;
+    }
+  }
+
+
+}
+
+
+
+
+
+@media screen and (min-width: $break-small) {
+  .home-page {
+    header {
+      height: 100%;
+    }
+
+    nav {
+      height: 100%;
+    }
+  }
+
+  #story-section {
+    .contents {
+      padding-right: 4%;
+      padding-left: 4%;
+      text-align: left;
+
+      img {
+        margin-right: 20px;
+        float: left;
       }
     }
   }
+
+
+  .contact-details {
+    .row {
+      .items {
+        text-align: center;
+        margin: auto;
+        i {
+          color: $color-red;
+          font-size: 60px;
+          height: 60px;
+          margin-right: 10px;
+        }
+
+        p {
+          display: block;
+          color: #1a1b23;
+          font-size: 18px;
+          font-weight: 800;
+        }
+      }
+    }
+  }
+
+  #skills {
+    font-size: 14px;
+  }
+
+  .left-sections {
+    .headings {
+      .red-line {
+        width: 70%;
+      }
+    }
+  }
+}

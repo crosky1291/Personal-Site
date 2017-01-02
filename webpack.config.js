@@ -39,11 +39,8 @@ var config = {
     },
 
     //processes the html angular templates
-    { 
-      test: /\.html$/, 
-      exclude: /node_modules/,
-      loader: 'raw'
-    }
+     { test: /\.html$/, loader: 'raw' },
+    { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}
 
     ]
   },

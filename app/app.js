@@ -30,4 +30,4 @@ function configFunction($routeProvider, $locationProvider) {
 //thats how everything is linked and readable.
 require('./scripts/controllers');
 require('./scripts/directives');
-require('../styles/main.scss')
+require('../styles/main.scss');

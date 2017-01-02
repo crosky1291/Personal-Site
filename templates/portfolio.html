@@ -14,12 +14,12 @@
       <div class="main-info">
         <h1> < PORTFOLIO /></h1>
         <div class="buttons">
-          <button id="all">All</button>
-          <button id="web-dev">Web Development</button>
-          <button id="3d">Vfx & 3D Animation</button>
+          <button id="all" ng-click="select('all')" ng-class="{'selected-category': isActive('all')}" >All</button>
+          <button id="web-dev" ng-click="select('web-dev')" ng-class="{'selected-category': isActive('web-dev')}">Web Development</button>
+          <button id="3d" ng-click="select('3d')" ng-class="{'selected-category': isActive('3d')}">Vfx & 3D Animation</button>
         </div>
         <div id="projects-container" class="row">
-          <div class="projects web-dev col-xs-6">
+          <div class="projects web-dev col-sm-6" ng-if="!isActive('3d')">
             <div class="project">
               <img src="../images/projects/copernicus.png">
               <div class="project-mask"></div>
@@ -29,7 +29,7 @@
               </div>
             </div>
           </div>
-          <div class="projects web-dev col-xs-6">
+          <div class="projects web-dev col-sm-6" ng-if="!isActive('3d')">
             <div class="project">
               <img src="../images/projects/easyraidfinder.png">
               <div class="project-mask"></div>
@@ -39,7 +39,7 @@
               </div>
             </div>
           </div>
-          <div class="projects vfx col-xs-6">
+          <div class="projects vfx col-sm-6" ng-if="!isActive('web-dev')">
             <div class="project">
               <img src="../images/projects/animation.png">
               <div class="project-mask"></div>
@@ -49,7 +49,7 @@
               </div>
             </div>
           </div>
-          <div class="projects vfx col-xs-6">
+          <div class="projects vfx col-sm-6" ng-if="!isActive('web-dev')">
             <div class="project">
               <img src="../images/projects/vfx.png">
               <div class="project-mask"></div>

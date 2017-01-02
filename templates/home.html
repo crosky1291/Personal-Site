@@ -6,7 +6,7 @@
       <div class="intro-content">
         <h1>HELLO. <br> I'M <span class="red">YANDRI</span></h1>
         <h2>SOFTWARE ENGINEER</h2>
-        <div class="social-media">
+        <div class="social-media hidden-xs">
           <a href="{{i.url}}" class="{{i.iconClass}}" ng-repeat="i in socialMedia">
             <span>{{i.name}}</span>
           </a>
@@ -18,11 +18,11 @@
         <li id="{{item.id}}" ng-repeat="item in nav" class="" ng-click="changePage(item.id)">
           <img ng-src="{{item.img}}" alt="{{item.alt}}" >
           <div class="mask"></div>
-          <div class="content">
+          <div class="content row row-no-padding">
             <div class="circle col-xs-2">
               <img ng-src="{{item.icon}}" class="">
             </div>
-            <div class="col-xs-10">
+            <div class="col-xs-9 text">
               <h2>{{item.name[0]}}<span class="red">{{item.name[1]}}</span>{{item.name[2]}}</h2>
               <h3>{{item.info}}</h3>
             </div> 

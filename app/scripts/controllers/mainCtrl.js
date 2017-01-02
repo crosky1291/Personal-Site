@@ -1,6 +1,12 @@
 'use strict'
 
-function MainCtrl($scope, $location, $window, $timeout) {
+function MainCtrl($scope, $location, $window, $timeout, $http, $httpParamSerializerJQLike) {
+
+  $scope.checkMobile = function() {
+    var width = $window.innerWidth;
+    if (width >= 992) return $scope.mobile = false;
+    $scope.mobile = true;
+  }
 
   $scope.socialMedia = [
     {
@@ -37,6 +43,11 @@ function MainCtrl($scope, $location, $window, $timeout) {
       name: "Github",
       url: "https://github.com/crosky1291",
       iconClass: "fa fa-github"
+    },
+    {
+      name: "Stack Overflow",
+      url: "http://stackoverflow.com/users/6304879/yandri?tab=profile",
+      iconClass: "fa fa-stack-overflow"
     }
   ]
 
@@ -134,7 +145,49 @@ function MainCtrl($scope, $location, $window, $timeout) {
   $scope.currentYear = '2015';
   $scope.class2;
   $scope.class3;
-  
+
+  $scope.formData; //an object with what user filled up.
+  $scope.submitForm = function(formData) {
+    $http({
+      method  : 'POST',
+      url     : '../../../contact.php',
+      data    : $httpParamSerializerJQLike(formData),  //param method from jQuery
+      headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
+    })
+    .then(function(res){
+      var data = res.data;
+
+      if(data === "success") {
+        $scope.contactInfoClass = "form-success";
+
+        $timeout(function() {
+          $scope.contactInfoClass = "";
+        }, 3000);
+
+      } else if (data === "invalid email") {
+        $scope.contactInfoClass = "invalid-email";
+      } else if (data === "invalid name") {
+        $scope.contactInfoClass = "invalid-name";
+      } else {
+        $scope.contactInfoClass = "form-error";
+
+        $timeout(function() {
+          $scope.contactInfoClass = "";
+        }, 3000);
+      }
+    })
+  }
+
+  $scope.selected = 'all';
+  $scope.select = function(item) {
+    $scope.selected = item;  
+  };
+
+  $scope.isActive = function(item) {
+    return $scope.selected === item;
+  };
+
+  $scope.contactInfoClass;
 }
 
 module.exports = MainCtrl;

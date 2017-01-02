@@ -4206,25 +4206,25 @@ webpackJsonp([0],[
 /* 7 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"home-page container\">\n  <div class=\"main-content row row-no-padding\">\n    <header class=\"col-md-6 {{class2}}\">\n      <img ng-src=\"http://demos.seekerinfinity.com/demo/insta/preview/images/home_dp.jpg\" alt=\"image of me\" class=\"\" ng-style=\"style()\" resize>\n      <div class=\"mask\"></div>\n      <div class=\"intro-content\">\n        <h1>HELLO. <br> I'M <span class=\"red\">YANDRI</span></h1>\n        <h2>SOFTWARE ENGINEER</h2>\n        <div class=\"social-media\">\n          <a href=\"{{i.url}}\" class=\"{{i.iconClass}}\" ng-repeat=\"i in socialMedia\">\n            <span>{{i.name}}</span>\n          </a>\n        </div>\n      </div>\n    </header>\n    <nav class=\"col-md-6 {{class3}}\">\n      <ul id=\"nav-items\">\n        <li id=\"{{item.id}}\" ng-repeat=\"item in nav\" class=\"\" ng-click=\"changePage(item.id)\">\n          <img ng-src=\"{{item.img}}\" alt=\"{{item.alt}}\" >\n          <div class=\"mask\"></div>\n          <div class=\"content\">\n            <div class=\"circle col-xs-2\">\n              <img ng-src=\"{{item.icon}}\" class=\"\">\n            </div>\n            <div class=\"col-xs-10\">\n              <h2>{{item.name[0]}}<span class=\"red\">{{item.name[1]}}</span>{{item.name[2]}}</h2>\n              <h3>{{item.info}}</h3>\n            </div> \n          </div> <!-- content -->\n        </li> \n      </ul>\n    </nav>\n  </div>\n</div> <!-- main-container -->\n"
+	module.exports = "<div class=\"home-page container\">\n  <div class=\"main-content row row-no-padding\">\n    <header class=\"col-sm-6 {{class2}}\">\n      <img ng-src=\"../images/mainPhoto.jpg\" alt=\"image of me\" class=\"\" ng-style=\"style()\" resize>\n      <div class=\"mask\"></div>\n      <div class=\"intro-content\">\n        <h1>HELLO. <br> I'M <span class=\"red\">YANDRI</span></h1>\n        <h2>SOFTWARE ENGINEER</h2>\n        <div class=\"social-media hidden-xs\">\n          <a href=\"{{i.url}}\" class=\"{{i.iconClass}}\" ng-repeat=\"i in socialMedia\">\n            <span>{{i.name}}</span>\n          </a>\n        </div>\n      </div>\n    </header>\n    <nav class=\"col-sm-6 {{class3}}\">\n      <ul id=\"nav-items\">\n        <li id=\"{{item.id}}\" ng-repeat=\"item in nav\" class=\"\" ng-click=\"changePage(item.id)\">\n          <img ng-src=\"{{item.img}}\" alt=\"{{item.alt}}\" >\n          <div class=\"mask\"></div>\n          <div class=\"content row row-no-padding\">\n            <div class=\"circle col-xs-2\">\n              <img ng-src=\"{{item.icon}}\" class=\"\">\n            </div>\n            <div class=\"col-xs-9 text\">\n              <h2>{{item.name[0]}}<span class=\"red\">{{item.name[1]}}</span>{{item.name[2]}}</h2>\n              <h3>{{item.info}}</h3>\n            </div> \n          </div> <!-- content -->\n        </li> \n      </ul>\n    </nav>\n  </div>\n</div> <!-- main-container -->\n"
 
 /***/ },
 /* 8 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"profile-page container\">\n  <closebutton changepage=\"changePage('home')\"></closebutton>\n  <div class=\"main-content row row-no-padding\">\n    <header class=\"col-md-5\">\n      <img ng-src=\"http://demos.seekerinfinity.com/demo/insta/preview/images/background/profile_image.jpg\" alt=\"backdrop image of the profile page\">\n      <div class=\"mask\"></div>\n      <div class=\"headings\">\n        <h1>PR<span class=\"red\">O</span>FILE</h1>\n        <div class=\"red-line\"></div>\n      </div>\n    </header>\n    <section class=\"col-md-7\">\n      <div id=\"story-section\" class=\" row row-no-padding\">\n        <img ng-src=\"http://demos.seekerinfinity.com/demo/insta/preview/images/background/story_bg.jpg\" class=\"col-xs-12\">\n        <div class=\"contents row-no-padding\">\n          <h1> < MY STORY /></h1>\n          <img ng-src=\"http://demos.seekerinfinity.com/demo/insta/preview/images/dp.jpg\" class=\"col-sm-4\">\n          <div class=\"col-sm-7\">\n            <h2>No semicolons below. Cant mess this one up, HA!</h2>\n            <p>Hello and thanks for visiting my site. I've changed my career as a 3D Artist to focus on web development. WHY IN THE WORLD WOULD I DO THAT? Because I love to learn!\n            </p>\n            <br>\n            <p>I've always thought people who could code were genius...and well....I got curious...and decided to find out!\n            Turns out that this, was one of the best choices I've made in my LIFE!\n            Why? Because I get to build amazing things that can impact the life of others, and it is very rewarding. I love thinking creatively, and learning new tricks to speed up workflow, as well as learning new emerging technologies.\n            </p>\n            <h2>Getting tech-y</h2>\n            <p>I immersed my learning in Javascript, and really enjoy working with Angular and React, building single-page applications, and finding ways to optimize performance. I use Node and express for back-end needs, and mongoDB documents to structure my data. I am a fan of keeping things modular, commented and well organized.\n            </p>\n          </div>\n        </div>\n      </div>\n      <techicons></techicons>\n      <footerinfo />\n    </section>\n  </div>\n</div>"
+	module.exports = "<div class=\"profile-page container\" ng-init=\"hello()\">\n  <closebutton changepage=\"changePage('home')\"></closebutton>\n  <div class=\"main-content row row-no-padding\">\n    <header class=\"col-md-5 left-sections\">\n      <img ng-src=\"../images/profile_header.jpg\" alt=\"backdrop image of the profile page\">\n      <div class=\"mask\"></div>\n      <div class=\"headings\">\n        <h1>PR<span class=\"red\">O</span>FILE</h1>\n        <div class=\"red-line\"></div>\n      </div>\n    </header>\n    <section class=\"col-md-7 right-sections\">\n      <div id=\"story-section\">\n        <div class=\"contents row row-no-padding\">\n          <h1> < MY STORY /></h1>\n          <img ng-src=\"{{profilePhoto}}\" class=\"col-sm-4 col-xs-6\">\n          <div class=\"col-sm-7 col-xs-12\">\n            <h2>No semicolons below. Cant mess this one up, HA!</h2>\n            <p>Hello and thanks for visiting my site. I've changed my career as a 3D Artist to focus on web development. WHY IN THE WORLD WOULD I DO THAT? Because I love to learn!\n            </p>\n            <br>\n            <p>I've always thought people who could code were genius...and well....I got curious...and decided to find out!\n            Turns out that this, was one of the best choices I've made in my LIFE!\n            Why? Because I get to build amazing things that can impact the life of others, and it is very rewarding. I love thinking creatively, and learning new tricks to speed up workflow, as well as learning new emerging technologies.\n            </p>\n            <h2>Getting tech-y</h2>\n            <p>I immersed my learning in Javascript, and really enjoy working with Angular and React, building single-page applications, and finding ways to optimize performance. I use Node and express for back-end needs, and mongoDB documents to structure my data. I am a fan of keeping things modular, commented and well organized. (WEBPACK) is my best friend! :)\n            </p>\n          </div>\n        </div>\n      </div>\n      <techicons></techicons>\n      <footerinfo />\n    </section>\n  </div>\n</div>"
 
 /***/ },
 /* 9 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"portfolio-page container\">\n  <closebutton changepage=\"changePage('home')\"></closebutton>\n  <div class=\"main-content row row-no-padding\">\n    <header class=\"col-md-5\">\n      <img ng-src=\"http://demos.seekerinfinity.com/demo/insta/preview/images/background/portfolio_image.jpg\" alt=\"backdrop image of the portfolio page\">\n      <div class=\"mask\"></div>\n      <div class=\"headings\">\n        <h1>POR<span class=\"red\">T</span>FOLIO</h1>\n        <div class=\"red-line\"></div>\n      </div>\n    </header>\n    <section class=\"col-md-7\">\n      <div class=\"main-info\">\n        <h1> < PORTFOLIO /></h1>\n        <div class=\"buttons\">\n          <button id=\"all\">All</button>\n          <button id=\"web-dev\">Web Development</button>\n          <button id=\"3d\">Vfx &  3D Animation</button>\n        </div>\n        <div id=\"projects-container\" class=\"row\">\n          <div class=\"projects web-dev col-xs-6\">\n            <div class=\"project\">\n              <img src=\"../images/copernicus.png\">\n              <div class=\"project-mask\"></div>\n              <div class=\"project-buttons\">\n                <a class=\"fa fa-info-circle\"></a>\n                <a class=\"fa fa-github\"></a>\n              </div>\n            </div>\n          </div>\n          <div class=\"projects web-dev col-xs-6\">\n            <div class=\"project\">\n              <img src=\"../images/easyraidfinder.png\">\n              <div class=\"project-mask\"></div>\n              <div class=\"project-buttons\">\n                <a class=\"fa fa-info-circle\"></a>\n                <a class=\"fa fa-github\"></a>\n              </div>\n            </div>\n          </div>\n          <div class=\"projects vfx col-xs-6\">\n            <div class=\"project\">\n              <img src=\"../images/animation.png\">\n              <div class=\"project-mask\"></div>\n              <div class=\"project-buttons\">\n                <a class=\"fa fa-info-circle\"></a>\n                <a class=\"fa fa-github\"></a>\n              </div>\n            </div>\n          </div>\n          <div class=\"projects vfx col-xs-6\">\n            <div class=\"project\">\n              <img src=\"../images/vfx.png\">\n              <div class=\"project-mask\"></div>\n              <div class=\"project-buttons\">\n                <a class=\"fa fa-info-circle\"></a>\n                <a class=\"fa fa-github\"></a>\n              </div>\n            </div>\n          </div>\n        </div> <!-- project container -->\n      </div>\n      <button id=\"resume\">Download Resume</button>\n      <techicons></techicons>\n      <footerinfo year=\"currentYear\" />\n    </section>\n  </div>\n</div>"
+	module.exports = "<div class=\"portfolio-page container\">\n  <closebutton changepage=\"changePage('home')\"></closebutton>\n  <div class=\"main-content row row-no-padding\">\n    <header class=\"col-md-5 left-sections\">\n      <img ng-src=\"../images/portfolio_header.jpg\" alt=\"backdrop image of the portfolio page\">\n      \n      <div class=\"mask\"></div>\n      <div class=\"headings\">\n        <h1>POR<span class=\"red\">T</span>FOLIO</h1>\n        <div class=\"red-line\"></div>\n      </div>\n    </header>\n    <section class=\"col-md-7 right-sections\">\n      <div class=\"main-info\">\n        <h1> < PORTFOLIO /></h1>\n        <div class=\"buttons\">\n          <button id=\"all\">All</button>\n          <button id=\"web-dev\">Web Development</button>\n          <button id=\"3d\">Vfx & 3D Animation</button>\n        </div>\n        <div id=\"projects-container\" class=\"row\">\n          <div class=\"projects web-dev col-sm-6\">\n            <div class=\"project\">\n              <img src=\"../images/projects/copernicus.png\">\n              <div class=\"project-mask\"></div>\n              <div class=\"project-buttons\">\n                <a class=\"fa fa-info-circle\"></a>\n                <a class=\"fa fa-github\" href=\"https://github.com/crosky1291/Main\"></a>\n              </div>\n            </div>\n          </div>\n          <div class=\"projects web-dev col-sm-6\">\n            <div class=\"project\">\n              <img src=\"../images/projects/easyraidfinder.png\">\n              <div class=\"project-mask\"></div>\n              <div class=\"project-buttons\">\n                <a class=\"fa fa-info-circle\"></a>\n                <a class=\"fa fa-github\" href=\"https://github.com/crosky1291/Easy-RaidFinder\"></a>\n              </div>\n            </div>\n          </div>\n          <div class=\"projects vfx col-sm-6\">\n            <div class=\"project\">\n              <img src=\"../images/projects/animation.png\">\n              <div class=\"project-mask\"></div>\n              <div class=\"project-buttons\">\n                <a class=\"fa fa-info-circle\"></a>\n                <a class=\"fa fa-youtube-play\" href=\"https://www.youtube.com/watch?v=SfnJ13Qh7BE\"></a>\n              </div>\n            </div>\n          </div>\n          <div class=\"projects vfx col-sm-6\">\n            <div class=\"project\">\n              <img src=\"../images/projects/vfx.png\">\n              <div class=\"project-mask\"></div>\n              <div class=\"project-buttons\">\n                <a class=\"fa fa-info-circle\"></a>\n                <a class=\"fa fa-youtube-play\" href=\"https://www.youtube.com/watch?v=Mru23onz-Ms\"></a>\n              </div>\n            </div>\n          </div>\n        </div> <!-- project container -->\n      </div>\n      <a id=\"resume\" href=\"../images/YandriSanchez_Resume.pdf\" download=\"../images/YandriSanchez_Resume.pdf\">Download Resume</a>\n      <techicons></techicons>\n      <footerinfo year=\"currentYear\" />\n    </section>\n  </div>\n</div>"
 
 /***/ },
 /* 10 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"contact-page container\">\n  <closebutton changepage=\"changePage('home')\"></closebutton>\n  <div class=\"main-content row row-no-padding\">\n    <header class=\"col-md-5\">\n      <img ng-src=\"http://demos.seekerinfinity.com/demo/insta/preview/images/background/portfolio_image.jpg\" alt=\"backdrop image of the portfolio page\">\n      <div class=\"mask\"></div>\n      <div class=\"headings\">\n        <h1>CON<span class=\"red\">T</span>ACT</h1>\n        <div class=\"red-line\"></div>\n      </div>\n    </header>\n    <section class=\"col-md-7\">\n      <div class=\"main-info\">\n        <h1>SAY HELLO!</h1>\n        <form id=\"contact-form\" action=\"contact.php\" method=\"post\" class=\"row row-no-padding\">\n          <section id=\"contact-left\" class=\"col-md-6\">\n            <label for=\"name\" class=\"col-xs-12\">\n              <span class=\"col-xs-3\">Name</span>\n              <input type=\"text\" id=\"name\" required class=\"col-xs-9\"/>\n            </label>\n            <label for=\"email\" class=\"col-xs-12\">\n                <span class=\"col-xs-3\">Email</span>\n                <input type=\"text\" id=\"email\" required class=\"col-xs-9\" />\n            </label>\n            <label for=\"phone\" class=\"col-xs-12\">\n                <span class=\"col-xs-3\">Phone</span>\n                <input type=\"text\" id=\"phone\" class=\"col-xs-9\" />\n            </label>\n            <label for=\"budget\" class=\"col-xs-12\">              \n              <span class=\"col-xs-3\">Budget</span>\n              <input type=\"text\" id=\"budget\" placeholder=\"$\" class=\"col-xs-9\" />\n            </label>\n            <button type=\"submit\">Send\n            <i class=\"fa fa-paper-plane-o\"></i>\n            </button>\n          </section>\n          <section id=\"contact-right\" class=\"col-md-6\">\n            <textarea id=\"text-area\" placeholder=\"Leave me a little message...\" class=\"col-xs-11\"></textarea>\n          </section>\n        </form>\n      </div>\n      <div id=\"location-img\">\n        <img src=\"../images/location.jpg\" >\n      </div>\n      \n      <div class=\"main-info contact-details\">\n        <h2>Contact Details</h2>\n        <div class=\"row row-no-padding\">\n          <div class=\"col-md-4 items\">\n            <i class=\"fa fa-map-marker\"></i>\n            <p>Culver City, CA</p>\n          </div>\n          <div class=\"col-md-4 items\">\n            <i class=\"fa fa-phone\"></i>\n            <p>321-245-1309</p>\n          </div>\n          <div class=\"col-md-4 items\">\n            <i class=\"fa fa-envelope\"></i>\n            <p>Ysanchez3d@gmail.com</p>\n          </div>\n        </div>\n      </div>\n      <footerinfo year=\"currentYear\" />\n    </section>\n  </div>\n</div>"
+	module.exports = "\n<div class=\"contact-page container\" ng-init=\"checkMobile()\">\n  <closebutton changepage=\"changePage('home')\"></closebutton>\n  <div class=\"main-content row row-no-padding\">\n    <header class=\"col-md-5 left-sections\">\n      <img ng-src=\"../images/contact_header.jpg\" alt=\"backdrop image of the portfolio page\">\n      <div class=\"mask\"></div>\n      <div class=\"headings\">\n        <h1>CON<span class=\"red\">T</span>ACT</h1>\n        <div class=\"red-line\"></div>\n      </div>\n    </header>\n    <section class=\"col-md-7 right-sections\">\n      <div class=\"main-info\">\n        <h1>SAY HELLO!</h1>\n        <form id=\"contact-form\" ng-submit=\"submitForm(formData)\" class=\"row\">\n          <section id=\"contact-left\" class=\"col-md-7 row\">\n            <label for=\"name\" class=\"col-xs-12\">\n              <span class=\"col-md-3 col-xs-3\">Name</span>\n              <input type=\"text\" id=\"name\" ng-model=\"formData.name\" required class=\"col-md-9 col-xs-9\"/>\n            </label>\n            <label for=\"email\" class=\"col-xs-12\">\n                <span class=\"col-md-3 col-xs-3\">Email</span>\n                <input type=\"text\" id=\"email\" ng-model=\"formData.email\" required class=\"col-md-9 col-xs-9\" />\n            </label>\n            <label for=\"phone\" class=\"col-xs-12\">\n                <span class=\"col-md-3 col-xs-3\">Phone</span>\n                <input type=\"text\" id=\"phone\" ng-model=\"formData.phone\" class=\"col-md-9 col-xs-9\" />\n            </label>\n            <label for=\"budget\" class=\"col-xs-12\">              \n              <span class=\"col-md-3 col-xs-3\">Budget</span>\n              <input type=\"text\" id=\"budget\" placeholder=\"$\" ng-model=\"formData.budget\" class=\"col-md-9 col-xs-9\" />\n            </label>\n            <button type=\"submit\" ng-if=\"!mobile\">Send\n              <i class=\"fa fa-paper-plane-o\"></i>\n            </button>\n          </section>\n          <section id=\"contact-right\" class=\"col-md-5 row\">\n            <textarea id=\"message\" placeholder=\"Leave me a little message...\"  ng-model=\"formData.message\" class=\"col-xs-10 col-md-12\"></textarea>\n          </section>\n          <button type=\"submit\" ng-if=\"mobile\" class=\"col-xs-3 col-sm-2\">Send\n            <i class=\"fa fa-paper-plane-o\"></i>\n          </button>\n          <p class=\"{{contactInfoClass}}\"> </p>\n        </form>\n      </div>\n      <div id=\"location-img\">\n        <img src=\"../images/location.jpg\" >\n      </div>\n      \n      <div class=\"main-info contact-details\">\n        <h2>Contact Details</h2>\n        <div class=\"row row-no-padding\">\n          <div class=\"col-sm-4 items\">\n            <i class=\"fa fa-map-marker\"></i>\n            <p>Culver City, CA</p>\n          </div>\n          <div class=\"col-sm-4 items\">\n            <i class=\"fa fa-phone\"></i>\n            <p>321-245-1309</p>\n          </div>\n          <div class=\"col-sm-4 items\">\n            <i class=\"fa fa-envelope\"></i>\n            <p>Ysanchez3d@gmail.com</p>\n          </div>\n        </div>\n      </div>\n      <footerinfo year=\"currentYear\" />\n    </section>\n  </div>\n</div>"
 
 /***/ },
 /* 11 */
@@ -4243,7 +4243,13 @@ webpackJsonp([0],[
 
 	'use strict';
 
-	function MainCtrl($scope, $location, $window, $timeout) {
+	function MainCtrl($scope, $location, $window, $timeout, $http, $httpParamSerializerJQLike) {
+
+	  $scope.checkMobile = function () {
+	    var width = $window.innerWidth;
+	    if (width >= 992) return $scope.mobile = false;
+	    $scope.mobile = true;
+	  };
 
 	  $scope.socialMedia = [{
 	    name: "Facebook",
@@ -4275,88 +4281,59 @@ webpackJsonp([0],[
 	    iconClass: "fa fa-github"
 	  }];
 
-	  $scope.iconsInfo = [{
-	    icon: "html.png",
-	    text: 'HTML'
-	  }, {
-	    icon: "css.png",
-	    text: 'CSS'
-	  }, {
-	    icon: "javascript.png",
-	    text: 'JAVASCRIPT'
-	  }, {
-	    icon: "jquery.png",
-	    text: 'JQUERY'
-	  }, {
-	    icon: "less.png",
-	    text: 'LESS'
-	  }, {
-	    icon: "sass.png",
-	    text: 'SASS'
-	  }, {
-	    icon: "node.png",
-	    text: 'NODE'
-	  }, {
-	    icon: "socketio.png",
-	    text: 'SOCKET IO'
-	  }, {
-	    icon: "webpack.png",
-	    text: 'WEBPACK'
-	  }, {
-	    icon: "angular.png",
-	    text: 'ANGULAR'
-	  }, {
-	    icon: "react.png",
-	    text: 'REACT'
-	  }, {
-	    icon: "git.png",
-	    text: 'GIT'
-	  }, {
-	    icon: "bootstrap.png",
-	    text: 'BOOTSTRAP'
-	  }, {
-	    icon: "mongodb.png",
-	    text: 'MONGO DB'
-	  }, {
-	    icon: "oauth.png",
-	    text: 'oAUTH'
-	  }, {
-	    icon: "maya.png",
-	    text: 'MAYA'
-	  }, {
-	    icon: "nuke.png",
-	    text: 'NUKE'
-	  }, {
-	    icon: "photoshop.png",
-	    text: 'PHOTOSHOP'
-	  }];
+	  $scope.idx = 0;
+	  $scope.photos = ['../images/yandri1.jpg', '../images/yandri2.jpg'];
+	  $scope.profilePhoto = $scope.photos[$scope.idx];
+
+	  $scope.increment = function () {
+	    if ($scope.idx === 1) {
+	      $scope.idx = 0;
+	    } else {
+
+	      return $timeout(function () {
+	        $scope.idx++;
+	        $scope.hello();
+	      }, 3200);
+	    }
+
+	    $scope.hello();
+	  };
+
+	  $scope.hello = function () {
+
+	    $timeout(function () {
+
+	      $scope.profilePhoto = $scope.photos[$scope.idx];
+	      $scope.increment();
+	    }, 1300);
+	  };
 
 	  $scope.nav = [{
 	    id: "profile",
 	    name: ["PR", "O", "FILE"],
-	    info: "a little about me",
-	    img: "http://demos.seekerinfinity.com/demo/insta/preview/images/menu/profile_btn.jpg",
+	    info: "A little about me...",
+	    img: "../images/nav_profile.jpg",
 	    icon: "../images/profile2.png",
 	    alt: "profile button image"
 	  }, {
 	    id: "portfolio",
 	    name: ["PORT", "F", "OLIO"],
-	    info: "all my work...",
-	    img: "http://demos.seekerinfinity.com/demo/insta/preview/images/menu/portfolio_btn.jpg",
+	    info: "Some of my work...",
+	    img: "../images/nav_portfolio.jpg",
 	    icon: "../images/protfolio2.png",
 	    alt: "portfolio button image"
 	  }, {
 	    id: "blog",
 	    name: ["BL", "O", "G"],
-	    info: "all my stories",
-	    img: "http://demos.seekerinfinity.com/demo/insta/preview/images/menu/resume_btn.jpg",
+	    info: "My personal tech blog...",
+	    img: "../images/nav_blog.jpg",
 	    icon: "../images/blog2.png",
 	    alt: "blog button image"
 	  }, {
 	    id: "contact",
 	    name: ["CO", "N", "TACT"],
-	    info: "reach out to me...",
-	    img: "http://demos.seekerinfinity.com/demo/insta/preview/images/menu/contact_btn.jpg",
+	    info: "Come say hello!",
+	    img: "../images/nav_contact.jpg",
 	    icon: "../images/contact2.png",
 	    alt: "contact button image"
 	  }];
@@ -4392,6 +4369,38 @@ webpackJsonp([0],[
 	  $scope.currentYear = '2015';
 	  $scope.class2;
 	  $scope.class3;
+
+	  $scope.formData; //an object with what user filled up.
+	  $scope.submitForm = function (formData) {
+	    $http({
+	      method: 'POST',
+	      url: '../../../contact.php',
+	      data: $httpParamSerializerJQLike(formData), //param method from jQuery
+	      headers: { 'Content-Type': 'application/x-www-form-urlencoded' } //set the headers so angular passing info as form data (not request payload)
+	    }).then(function (res) {
+	      var data = res.data;
+
+	      if (data === "success") {
+	        $scope.contactInfoClass = "form-success";
+
+	        $timeout(function () {
+	          $scope.contactInfoClass = "";
+	        }, 3000);
+	      } else if (data === "invalid email") {
+	        $scope.contactInfoClass = "invalid-email";
+	      } else if (data === "invalid name") {
+	        $scope.contactInfoClass = "invalid-name";
+	      } else {
+	        $scope.contactInfoClass = "form-error";
+
+	        $timeout(function () {
+	          $scope.contactInfoClass = "";
+	        }, 3000);
+	      }
+	    });
+	  };
+
+	  $scope.contactInfoClass;
 	}
 
 	module.exports = MainCtrl;
@@ -4432,7 +4441,12 @@ webpackJsonp([0],[
 	  return function ($scope, element) {
 
 	    $scope.getWindowDimensions = function () {
-	      return { 'h': $window.innerHeight, 'w': $window.innerWidth / 2 };
+	      var width = $window.innerWidth;
+	      var height = $window.innerHeight;
+	      var correctWidth = width >= 768 ? width / 2 : width;
+	      var correctHeight = height > width ? height / 2 : height;
+
+	      return { 'h': correctHeight, 'w': correctWidth };
 	    };
 
 	    $scope.$watch($scope.getWindowDimensions, function (value) {
@@ -4442,14 +4456,13 @@ webpackJsonp([0],[
 	      $scope.style = function () {
 
 	        if (width > height) {
-	          console.log("hi");
 
 	          return {
 	            height: 'auto',
 	            width: 100 + "%"
 	          };
 	        }
-	        console.log('no');
+
 	        return {
 	          "height": "100%",
 	          "width": 'auto'
@@ -4488,7 +4501,7 @@ webpackJsonp([0],[
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<footer class=\"row\">\n  <p class=\"col-xs-4\">Yandri Sanchez</p>\n  <p class=\"col-xs-6 text-right\">Copyright &copy; {{year}}</p>\n</footer>"
+	module.exports = "<footer class=\"row\">\n  <p class=\"col-xs-6\">Yandri Sanchez</p>\n  <p class=\"col-xs-6 text-right\">Copyright &copy; {{year}}</p>\n</footer>"
 
 /***/ },
 /* 18 */
@@ -4569,7 +4582,7 @@ webpackJsonp([0],[
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<div id=\"skills\" class=\"row\">\n  <div ng-repeat=\"i in iconsInfo\" class=\"tech-icon row-no-padding col-xs-2\">\n    <div class=\"icon-container\">\n      <img ng-src=\"../images/icons/{{i.icon}}\">\n    </div>\n    <span class=\"icon-text\">{{i.text}}</span>\n  </div>\n</div>"
+	module.exports = "<div id=\"skills\" class=\"row row-no-padding\">\n  <div ng-repeat=\"i in iconsInfo\" class=\"tech-icon col-xs-2\">\n    <div class=\"icon-container\">\n      <img ng-src=\"../images/techlogos/{{i.icon}}\">\n    </div>\n    <span class=\"icon-text\">{{i.text}}</span>\n  </div>\n</div>"
 
 /***/ },
 /* 20 */
@@ -4593,7 +4606,7 @@ webpackJsonp([0],[
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<div id=\"close\" ng-click=\"changepage()\">\n  <img ng-src=\"http://www.iconarchive.com/download/i59710/hopstarter/rounded-square/Button-Delete.ico\">\n</div>"
+	module.exports = "<div id=\"close\" ng-click=\"changepage()\">\n  <img ng-src=\"../images/closeButton.ico\">\n</div>"
 
 /***/ },
 /* 22 */
