@@ -26,6 +26,7 @@ function configFunction($routeProvider, $locationProvider) {
     });
 }
 
+configFunction.$inject = ['$routeProvider', '$locationProvider'];
 //this automatically requires the index.js file inside these folders.
 //thats how everything is linked and readable.
 require('./scripts/controllers');

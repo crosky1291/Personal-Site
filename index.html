@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yandri Sanchez | Software Engineer | Developer</title>
   <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,7 +19,7 @@
       <span></span>
     </div>
   </div>
-  <div class="page {{testclass}}" ng-class="{gomid: gomid}" ng-view></div>
+  <div class="page {{sitepage}}" ng-class="{gomid: gomid}" ng-view></div>
 
   <!-- LIBRARIES BEING USED SUCH AS ANGULAR -->
   <script type="text/javascript" src="build/libraries.bundle.js"></script>
@@ -61,6 +60,7 @@
       var fading = window.setInterval(func, interval);
     }
 
+    //fade out after a second
     setTimeout(function() {
       _('preloader').fade('out', 1000);
     }, 1000);

@@ -52,7 +52,12 @@ var config = {
 
   plugins: [
     new ExtractTextPlugin("bundle.css", {allChunks: false}),
-    new Webpack.optimize.CommonsChunkPlugin(/* chunkName= */"libraries", /* filename= */"libraries.bundle.js")
+    new Webpack.optimize.CommonsChunkPlugin(/* chunkName= */"libraries", /* filename= */"libraries.bundle.js"),
+    new Webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false // https://github.com/webpack/webpack/issues/1496
+      },
+    })
   ]
 };
 

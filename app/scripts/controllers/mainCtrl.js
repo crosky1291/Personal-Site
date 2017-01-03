@@ -1,13 +1,44 @@
 'use strict'
 
+
 function MainCtrl($scope, $location, $window, $timeout, $http, $httpParamSerializerJQLike) {
 
-  $scope.checkMobile = function() {
-    var width = $window.innerWidth;
-    if (width >= 992) return $scope.mobile = false;
-    $scope.mobile = true;
-  }
+  //all the nav items of the home page.
+  $scope.nav = [
+  {
+    id: "profile",
+    name: ["PR", "O", "FILE"],
+    info: "A little about me...",
+    img: "../images/nav_profile.jpg",
+    icon: "../images/profile2.png",
+    alt: "profile button image"
+  },
+  {
+    id: "portfolio",
+    name: ["PORT", "F", "OLIO"],
+    info: "Some of my work...",
+    img: "../images/nav_portfolio.jpg",
+    icon: "../images/protfolio2.png",
+    alt: "portfolio button image"
+  },
+  {
+    id: "blog",
+    name: ["BL", "O", "G"],
+    info: "My personal tech blog...",
+    img: "../images/nav_blog.jpg",
+    icon: "../images/blog2.png",
+    alt: "blog button image"
+  },
+  {
+    id: "contact",
+    name: ["CO", "N", "TACT"],
+    info: "Come say hello!",
+    img: "../images/nav_contact.jpg",
+    icon: "../images/contact2.png",
+    alt: "contact button image"
+  }];
 
+  //all the social media profiles shown in the home page
   $scope.socialMedia = [
     {
       name: "Facebook",
@@ -51,102 +82,99 @@ function MainCtrl($scope, $location, $window, $timeout, $http, $httpParamSeriali
     }
   ]
 
-  $scope.idx = 0;
-  $scope.photos = ['../images/yandri1.jpg', '../images/yandri2.jpg'];
-  $scope.profilePhoto = $scope.photos[$scope.idx];
+  //changes site pages and manages change page animations..
+  $scope.slideOutLeft;
+  $scope.slideOutRight;
+  $scope.changePage = function(path) {
+    $scope.slideOutLeft = 'slideoutleft';
+    $scope.slideOutRight = 'slideoutright';
 
-
-  $scope.increment = function() {
-    if ($scope.idx === 1) {
-      $scope.idx = 0;
-    } else {
-
-      return $timeout(function() {
-        $scope.idx++
-        $scope.hello();
-      }, 3200); 
+    if (path === 'home') {
+      $scope.gomid = true;
+      return $location.path('/');
     }
 
-    $scope.hello();
+    if (path === "blog") return $window.location.href = "https://medium.com/@yandrisanchez"
+    $location.path("/" + path);
   }
 
-  $scope.hello = function() {
-    
-    $timeout(function() {
 
-      $scope.profilePhoto = $scope.photos[$scope.idx];
-      $scope.increment();
-    }, 1300);
-  };
-
-
-  $scope.nav = [
-  {
-    id: "profile",
-    name: ["PR", "O", "FILE"],
-    info: "A little about me...",
-    img: "../images/nav_profile.jpg",
-    icon: "../images/profile2.png",
-    alt: "profile button image"
-  },
-  {
-    id: "portfolio",
-    name: ["PORT", "F", "OLIO"],
-    info: "Some of my work...",
-    img: "../images/nav_portfolio.jpg",
-    icon: "../images/protfolio2.png",
-    alt: "portfolio button image"
-  },
-  {
-    id: "blog",
-    name: ["BL", "O", "G"],
-    info: "My personal tech blog...",
-    img: "../images/nav_blog.jpg",
-    icon: "../images/blog2.png",
-    alt: "blog button image"
-  },
-  {
-    id: "contact",
-    name: ["CO", "N", "TACT"],
-    info: "Come say hello!",
-    img: "../images/nav_contact.jpg",
-    icon: "../images/contact2.png",
-    alt: "contact button image"
-  }];
-
-  $scope.changePage = function(path) {
-        $scope.class2 = 'left';
-        $scope.class3 = 'right';
-  
-      if (path === 'home') {
-        $scope.gomid = true;
-        return $location.path('/');
-      }
-
-      if (path === "blog") return $window.location.href = "https://medium.com/@yandrisanchez"
-      $location.path("/" + path);
-  }
-
-  $scope.testclass;
+  $scope.sitepage;
   $scope.currentPage = function() {
     var path = $location.path();
 
     if (path === '/') {
-      $scope.testclass = 'home';
-      $scope.class2 = 'leftin';
-      $scope.class3 = 'rightin';
+      $scope.sitepage = 'home';
+      $scope.slideOutLeft = 'leftin';
+      $scope.slideOutRight = 'rightin';
     } else if (path === '/profile') {
-      $scope.testclass = 'profile';
+      $scope.sitepage = 'profile';
     } else {
-      $scope.testclass = 'contact';
+      $scope.sitepage = 'contact';
     }
   }()
 
-  $scope.currentYear = '2015';
-  $scope.class2;
-  $scope.class3;
+  ////////// PROFILE PAGE STARTS HERE //////////////
 
+  $scope.photoIdx = 0;
+  $scope.profilePhotos = ['../images/yandri1.jpg', '../images/yandri2.jpg'];
+  $scope.currentPhoto = $scope.profilePhotos[$scope.photoIdx];
+
+
+  $scope.animateProfilePhoto = function() {
+    
+    //eyes move back quicker...
+    $timeout(function() {
+      $scope.currentPhoto = $scope.profilePhotos[$scope.photoIdx];
+      $scope.nextPhoto();
+    }, 1300);
+  };
+
+  $scope.nextPhoto = function() {
+    if ($scope.photoIdx === 1) {
+      $scope.photoIdx = 0;
+    } else {
+
+      return $timeout(function() {
+        $scope.photoIdx++
+        $scope.animateProfilePhoto();
+      }, 4500); 
+    }
+
+    $scope.animateProfilePhoto();
+  }
+
+////////// PROFILE PAGE ENDS HERE //////////////
+
+
+
+////////// PORTFOLIO PAGE STARTS HERE //////////////
+
+  $scope.selectedButton = 'all';
+  $scope.changeSelected = function(button) {
+    $scope.selectedButton = button;  
+  };
+
+  $scope.isActive = function(button) {
+    return $scope.selectedButton === button;
+  };
+
+
+////////// PORTFOLIO PAGE ENDS HERE //////////////
+
+
+///////////    CONTACT PAGE STARTS HERE    //////////
+
+  //being used to show send button in different placement depending on device
+  $scope.checkMobile = function() {
+    var width = $window.innerWidth;
+    if (width >= 992) return $scope.mobile = false;
+    $scope.mobile = true;
+  }
+
+  //form submission
   $scope.formData; //an object with what user filled up.
+  $scope.contactInfoClass; //this holds the error responses
   $scope.submitForm = function(formData) {
     $http({
       method  : 'POST',
@@ -177,17 +205,10 @@ function MainCtrl($scope, $location, $window, $timeout, $http, $httpParamSeriali
       }
     })
   }
-
-  $scope.selected = 'all';
-  $scope.select = function(item) {
-    $scope.selected = item;  
-  };
-
-  $scope.isActive = function(item) {
-    return $scope.selected === item;
-  };
-
-  $scope.contactInfoClass;
 }
-
+//must explicitly inject what I'm using in order to minify code for production
+//the reason is if $scope is only as a parameter in the controller function it gets turned into
+//a one letter parameter when minified //then hell breaks loose...
+//must do this everywhere something is injected on directives or controller.
+MainCtrl.$inject = ['$scope', '$location', '$window', '$timeout', '$http', '$httpParamSerializerJQLike'];
 module.exports = MainCtrl;

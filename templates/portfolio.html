@@ -1,6 +1,8 @@
+<!-- PORTFOLIO PAGE STARTS HERE -->
 <div class="portfolio-page container">
-  <closebutton changepage="changePage('home')"></closebutton>
+  <closebutton ng-click="changePage('home')"></closebutton>
   <div class="main-content row row-no-padding">
+    <!-- LEFT SECTION -->
     <header class="col-md-5 left-sections">
       <img ng-src="../images/portfolio_header.jpg" alt="backdrop image of the portfolio page">
       
@@ -10,15 +12,21 @@
         <div class="red-line"></div>
       </div>
     </header>
+    <!-- RIGHT SECTION -->
     <section class="col-md-7 right-sections">
       <div class="main-info">
         <h1> < PORTFOLIO /></h1>
+        <!-- PROJECT BUTTONS -->
         <div class="buttons">
-          <button id="all" ng-click="select('all')" ng-class="{'selected-category': isActive('all')}" >All</button>
-          <button id="web-dev" ng-click="select('web-dev')" ng-class="{'selected-category': isActive('web-dev')}">Web Development</button>
-          <button id="3d" ng-click="select('3d')" ng-class="{'selected-category': isActive('3d')}">Vfx & 3D Animation</button>
+          <button id="all" ng-click="changeSelected('all')" ng-class="{'selected-category': isActive('all')}" >All</button>
+          <button id="web-dev" ng-click="changeSelected('web-dev')" 
+                  ng-class="{'selected-category': isActive('web-dev')}">Web Development
+          </button>
+          <button id="3d" ng-click="changeSelected('3d')" ng-class="{'selected-category': isActive('3d')}">Vfx & 3D Animation</button>
         </div>
+        <!-- PROJECT CONTAINER -->
         <div id="projects-container" class="row">
+        <!-- COPERNICUS -->
           <div class="projects web-dev col-sm-6" ng-if="!isActive('3d')">
             <div class="project">
               <img src="../images/projects/copernicus.png">
@@ -29,6 +37,7 @@
               </div>
             </div>
           </div>
+         <!--  EASY-RAIDFINDER -->
           <div class="projects web-dev col-sm-6" ng-if="!isActive('3d')">
             <div class="project">
               <img src="../images/projects/easyraidfinder.png">
@@ -39,6 +48,7 @@
               </div>
             </div>
           </div>
+          <!-- ANIMATION DEMO REEL -->
           <div class="projects vfx col-sm-6" ng-if="!isActive('web-dev')">
             <div class="project">
               <img src="../images/projects/animation.png">
@@ -49,6 +59,7 @@
               </div>
             </div>
           </div>
+          <!-- 3D VFX DEMO REEL -->
           <div class="projects vfx col-sm-6" ng-if="!isActive('web-dev')">
             <div class="project">
               <img src="../images/projects/vfx.png">
@@ -59,7 +70,7 @@
               </div>
             </div>
           </div>
-        </div> <!-- project container -->
+        </div>
       </div>
       <a id="resume" href="../images/YandriSanchez_Resume.pdf" download="../images/YandriSanchez_Resume.pdf">Download Resume</a>
       <techicons></techicons>

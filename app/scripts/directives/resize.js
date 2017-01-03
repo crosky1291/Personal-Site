@@ -40,5 +40,5 @@ function ResizeDirective ($window) {
     });
   }
 }
-
+ResizeDirective.$inject = ['$window'];
 module.exports = ResizeDirective;
