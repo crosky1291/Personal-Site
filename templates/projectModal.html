@@ -1,0 +1,25 @@
+<div id="modal-p-info">
+  <div id="modal-p-container">
+    <h1>{{projects[projectInfoIndex].name}}</h1>
+    <div id="modal-image-container">
+      <img ng-src="../images/projects/{{projects[projectInfoIndex].image}}">
+    </div>
+    <div id="modal-description-container">
+      {{projects[projectInfoIndex].description}}
+    </div>
+    <div id="modal-highlights">
+      <ul>
+        <li ng-repeat="n in projects[projectInfoIndex].highlights">
+          {{n}}
+        </li>
+      </ul>
+    </div>
+     <div id="modal-links">
+      <ul>
+        <li ng-repeat="n in projects[projectInfoIndex].links">
+          {{n.text}}<a href="{{n.url}}" target="_blank">{{n.platform}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

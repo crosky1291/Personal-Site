@@ -125,6 +125,7 @@ h2 {
 
     img {
       width: 100%;
+      transition: all 0.5s;
     }
 
     ul {
@@ -143,7 +144,13 @@ h2 {
       .circle {
         box-shadow: 0 0 0 50px rgba(256, 256, 256, 0);
       }
-    }
+
+      .backdrop-img {
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+    }   
 
     h2 {
       margin: 0;
@@ -366,6 +373,7 @@ footer {
       color: $color-red;
       font-size: 50px;
       opacity: 0;
+      cursor: pointer;
       @include crossBrowser(transform, scale(5));
       text-decoration: none;
       border-radius: 50%;
@@ -543,6 +551,65 @@ footer {
 @keyframes slideOutRight {
   to    { transform: translateX(100%); }
 }
+
+//portfolio MODAL HERE
+
+#modal-p-container {
+  h1 {
+    font-size: 30px;
+    color: $color-red;
+  }
+}
+#modal-p-info {
+  color: #333;
+  padding: 20px 15px;
+  text-align: center;
+}
+#modal-image-container {
+  img {
+    display: block;
+    height: 200px;
+    max-width: 98%;
+    margin: 0 auto;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+  }
+
+  margin-bottom: 20px;
+  margin-top: 22px;
+}
+
+#modal-description-container {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#modal-highlights {
+  font-size: 14px;
+  text-align: left;
+  padding-left: 15px;
+
+  ul {
+    li {
+      margin-top: 7px;
+    }
+  }
+}
+
+#modal-links {
+  ul {
+    list-style: none;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    li {
+      margin-top: 15px;
+    }
+  }
+}
+
+
+
 
 //contact page
 
@@ -727,6 +794,10 @@ footer {
   }
 }
 
+#what-i-can-do {
+  font-size: 46px;
+}
+
 //media queries
 
 
@@ -736,7 +807,6 @@ footer {
   .contact-page {
     height: 100%;
   }
-
 
   #contact-form {
     section {
@@ -769,8 +839,6 @@ footer {
 
 
 
-
-
 @media screen and (min-width: $break-small) {
   .home-page {
     header {
@@ -780,6 +848,10 @@ footer {
     nav {
       height: 100%;
     }
+  }
+
+  #what-i-can-do {
+    font-size: 63px;
   }
 
   #story-section {

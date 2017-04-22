@@ -26,53 +26,20 @@
         </div>
         <!-- PROJECT CONTAINER -->
         <div id="projects-container" class="row">
-        <!-- COPERNICUS -->
-          <div class="projects web-dev col-sm-6" ng-if="!isActive('3d')">
+          <div class="projects {{i.type}} col-sm-6" ng-show="isActive('{{i.type}}') || isActive('all')"
+               ng-repeat="i in projects" ng-init="sectionIndex = $index">
             <div class="project">
-              <img src="../images/projects/copernicus.png">
+              <img ng-src="../images/projects/{{i.image}}">
               <div class="project-mask"></div>
               <div class="project-buttons">
-                <a class="fa fa-info-circle"></a>
-                <a class="fa fa-github" href="https://github.com/crosky1291/Main"></a>
-              </div>
-            </div>
-          </div>
-         <!--  EASY-RAIDFINDER -->
-          <div class="projects web-dev col-sm-6" ng-if="!isActive('3d')">
-            <div class="project">
-              <img src="../images/projects/easyraidfinder.png">
-              <div class="project-mask"></div>
-              <div class="project-buttons">
-                <a class="fa fa-info-circle"></a>
-                <a class="fa fa-github" href="https://github.com/crosky1291/Easy-RaidFinder"></a>
-              </div>
-            </div>
-          </div>
-          <!-- ANIMATION DEMO REEL -->
-          <div class="projects vfx col-sm-6" ng-if="!isActive('web-dev')">
-            <div class="project">
-              <img src="../images/projects/animation.png">
-              <div class="project-mask"></div>
-              <div class="project-buttons">
-                <a class="fa fa-info-circle"></a>
-                <a class="fa fa-youtube-play" href="https://www.youtube.com/watch?v=SfnJ13Qh7BE"></a>
-              </div>
-            </div>
-          </div>
-          <!-- 3D VFX DEMO REEL -->
-          <div class="projects vfx col-sm-6" ng-if="!isActive('web-dev')">
-            <div class="project">
-              <img src="../images/projects/vfx.png">
-              <div class="project-mask"></div>
-              <div class="project-buttons">
-                <a class="fa fa-info-circle"></a>
-                <a class="fa fa-youtube-play" href="https://www.youtube.com/watch?v=Mru23onz-Ms"></a>
+                <a class="{{i.button1}}" ng-click="openModal(sectionIndex)"></a>
+                <a class="{{i.button2[0]}}" href="{{i.button2[1]}}" target="_blank"></a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <a id="resume" href="../images/YandriSanchez_Resume.pdf" download="../images/YandriSanchez_Resume.pdf">Download Resume</a>
+      <a id="resume" href="../images/YandriSanchez-Resume.pdf" download="../images/YandriSanchez-Resume.pdf">Download Resume</a>
       <techicons></techicons>
       <footerinfo year="currentYear" />
     </section>
